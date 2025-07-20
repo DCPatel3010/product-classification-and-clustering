@@ -56,7 +56,7 @@ def benchmark_search_times(method, structure, keys):
     for key in keys:
         start = time.time()
         method(structure, key)
-        times.append((time.time() - start) * 1000)  # ms
+        times.append((time.time() - start) * 1000)  # in millisecond (ms)
     return times
 
 def main():
@@ -113,7 +113,7 @@ def main():
     os.makedirs("../results", exist_ok=True)
     results_df.to_csv("../results/performance.csv", index=False)
 
-    # ---------- PLOTTING ---------- #
+    # PLOTTING 
 
     # 1) Average time per search by pattern (Hash & Linear)
     plt.figure(figsize=(10,6))
@@ -129,7 +129,7 @@ def main():
     plt.savefig("../results/avg_search_time_by_pattern.png")
     plt.clf()
 
-    # 2) Boxplot of Hash Index mean search times by pattern using matplotlib only
+    # 2) Boxplot of Hash Index mean search times by pattern 
     plt.figure(figsize=(10, 6))
     data_to_plot = []
     labels = []
